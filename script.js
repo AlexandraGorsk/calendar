@@ -24,22 +24,19 @@ const renderCalendar = () => {
 		date.getFullYear(),
 		date.getMonth() + 1,
 		0
-	).getDate();//31
+	).getDate(); //31
 	const prevLastDay = new Date(
 		date.getFullYear(),
 		date.getMonth(),
 		0
 	).getDate();
-	const firstDayIndex = date.getDay()-1;
-	const lastDayIndex = new Date(
-		date.getFullYear(),
-		date.getMonth() + 1,
-		0
-	).getDay()-1;
-    console.log(firstDayIndex)
-    console.log(lastDayIndex)
-	const nextDays = 7 - lastDayIndex-1;
-    console.log(nextDays)
+	const firstDayIndex = date.getDay() - 1;
+	const lastDayIndex =
+		new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay() - 1;
+	console.log(firstDayIndex);
+	console.log(lastDayIndex);
+	const nextDays = 7 - lastDayIndex - 1;
+	console.log(nextDays);
 	let months = [
 		'Январь',
 		'Февраль',
@@ -75,10 +72,10 @@ const renderCalendar = () => {
 
 right.addEventListener('click', () => {
 	date.setMonth(date.getMonth() + 1);
-    renderCalendar()
+	renderCalendar();
 });
 left.addEventListener('click', () => {
 	date.setMonth(date.getMonth() - 1);
-    renderCalendar()
+	renderCalendar();
 });
-renderCalendar()
+renderCalendar();
