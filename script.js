@@ -32,10 +32,10 @@ const renderCalendar = () => {
 	).getDate();
 	const firstDayIndex = date.getDay() - 1;
 	const lastDayIndex =
-		new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay() - 1;
+		new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay()-1;
 	console.log(firstDayIndex);
 	console.log(lastDayIndex);
-	const nextDays = 7 - lastDayIndex - 1;
+	const nextDays = 7 - lastDayIndex-1;
 	console.log(nextDays);
 	let months = [
 		'Январь',
@@ -65,6 +65,9 @@ const renderCalendar = () => {
 		monthDays.innerHTML = days;
 	}
 	for (let j = 1; j <= nextDays; j++) {
+        if(lastDayIndex===-1){
+            return
+        }
 		days += `<div class="next-date">${j}</div>`;
 		monthDays.innerHTML = days;
 	}
