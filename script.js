@@ -32,11 +32,8 @@ const renderCalendar = () => {
 	).getDate();
 	const firstDayIndex = date.getDay() - 1;
 	const lastDayIndex =
-		new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay()-1;
-	console.log(firstDayIndex);
-	console.log(lastDayIndex);
+		new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay() - 1;
 	const nextDays = 6 - lastDayIndex;
-	console.log(nextDays);
 	let months = [
 		'Январь',
 		'Февраль',
@@ -57,23 +54,35 @@ const renderCalendar = () => {
 	}
 	writeMonth();
 	let days = '';
-    if (firstDayIndex ===-1) {
-        for (let previousmonth = 6; previousmonth > 0; previousmonth--) 
-        days += `<div class="prev-date">${prevLastDay - previousmonth + 1}</div>`
-    }
+	if (firstDayIndex === -1) {
+		for (let previousmonth = 6; previousmonth > 0; previousmonth--)
+			days += `<div class="prev-date common">${
+				prevLastDay - previousmonth + 1
+			}</div>`;
+	}
 	for (let previousmonth = firstDayIndex; previousmonth > 0; previousmonth--) {
-		days += `<div class="prev-date">${prevLastDay - previousmonth + 1}</div>`;
+		days += `<div class="prev-date common">${
+			prevLastDay - previousmonth + 1
+		}</div>`;
 	}
 	for (let currentmonth = 1; currentmonth <= lastDay; currentmonth++) {
-		days += `<div>${currentmonth}</div>`;
+		days += `<div class="common">${currentmonth}</div>`;
 		monthDays.innerHTML = days;
 	}
 	for (let nextmonth = 1; nextmonth <= nextDays; nextmonth++) {
-        if(lastDayIndex===-1){
-            return
-        }
-		days += `<div class="next-date">${nextmonth}</div>`;
+		if (lastDayIndex === -1) {
+			return;
+		}
+		days += `<div class="next-date common">${nextmonth}</div>`;
 		monthDays.innerHTML = days;
+	}
+	const alldays = document.getElementsByClassName('common');
+	console.log(alldays);
+	for (let i = 6; i < alldays.length; i += 7) {
+		alldays[i].classList.add('red');
+	}
+	for (let i = 5; i < alldays.length; i += 7) {
+		alldays[i].classList.add('red');
 	}
 };
 
