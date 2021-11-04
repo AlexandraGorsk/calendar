@@ -14,12 +14,15 @@
 #year, #month {
     height: 40px;
 }
+
 .red {
-    color:red;
+    color: red;
 }
+
 .weekdays {
     font-weight: 600;
 }
+
 #main {
     display: flex;
     flex-direction: row;
