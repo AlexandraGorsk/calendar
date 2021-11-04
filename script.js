@@ -77,7 +77,6 @@ const renderCalendar = () => {
 		monthDays.innerHTML = days;
 	}
 	const alldays = document.getElementsByClassName('common');
-	console.log(alldays);
 	for (let i = 6; i < alldays.length; i += 7) {
 		alldays[i].classList.add('red');
 	}
